@@ -4,16 +4,13 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-const Signup = () => {
+// TODO: Not finished yet
+const Demographics = () => {
     return (
         <div>
-            Create Account
+            First Time Demographics Setup
             <InputGroup className="mb-2">
-                <InputGroup.Text>Name</InputGroup.Text>
-                <FormControl placeholder="Email" />
-            </InputGroup>
-            <InputGroup className="mb-2">
-                <InputGroup.Text>Email</InputGroup.Text>
+                <InputGroup.Text>Type of Skating</InputGroup.Text>
                 <FormControl placeholder="Email" />
             </InputGroup>
             <InputGroup>
@@ -21,10 +18,10 @@ const Signup = () => {
                 <FormControl placeholder="Password" />
             </InputGroup>
             <Button>
-                <Link to="/">Submit</Link>
+                <Link to="/home">Login</Link>
             </Button>
         </div>
     );
 };
 
-export default Signup;
+export default Demographics;
