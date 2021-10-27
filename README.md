@@ -23,3 +23,5 @@ You will also see any lint errors in the console.
 [React Router](https://reactrouter.com/)
 
 [React Icons](https://react-icons.github.io/react-icons)
+
+[Prettier](https://prettier.io/) for code formatting

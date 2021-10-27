@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 const ParkCard = () => {
     return (
         <Card className="mb-4">
-            <Card.Img variant="top" src="images" />
+            <Card.Img variant="top" src="images/stock-tree.jpg" />
             <Card.Body>
                 <Card.Text>Generic park description</Card.Text>
             </Card.Body>

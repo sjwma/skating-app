@@ -1,8 +1,6 @@
 import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
