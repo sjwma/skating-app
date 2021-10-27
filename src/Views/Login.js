@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div>
-            Login
-            <InputGroup className="mb-2">
+        <div className="flex flex-col items-center justify-center h-screen mx-8">
+            <h1 className="mb-4">Login</h1>
+            <InputGroup className="mb-4">
                 <InputGroup.Text>Email</InputGroup.Text>
                 <FormControl placeholder="Email" />
             </InputGroup>
-            <InputGroup>
+            <InputGroup className="mb-4">
                 <InputGroup.Text>Password</InputGroup.Text>
                 <FormControl placeholder="Password" />
             </InputGroup>
-            <Button>
-                <Link to="/demographics">Login</Link>
+            <Button variant="outline-primary" href="/home">
+                Login
             </Button>
         </div>
     );

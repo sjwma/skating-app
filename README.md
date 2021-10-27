@@ -21,3 +21,5 @@ You will also see any lint errors in the console.
 [Tailwind CSS](https://tailwindcss.com/)
 
 [React Router](https://reactrouter.com/)
+
+[React Icons](https://react-icons.github.io/react-icons)
