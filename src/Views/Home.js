@@ -4,6 +4,8 @@ import FormControl from 'react-bootstrap/FormControl';
 import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
+import { Container, Row, Col } from 'react-grid-system';
+import FriendsCard from '../Components/FriendsCard';
 
 const Home = () => {
     return (
@@ -20,10 +22,34 @@ const Home = () => {
                 </InputGroup.Text>
             </InputGroup>
             <h3 className="mb-4">Nearby Parks</h3>
-            <div>
-                <ParkCard />
-                <ParkCard />
-            </div>
+            <Container>
+                <Row>
+                    <Col sm={4}>
+                    <ParkCard />
+                    </Col>
+                    <Col sm={4}>
+                    <ParkCard />
+                    </Col>
+                    <Col sm={4}>
+                    <ParkCard />
+                    </Col>
+                </Row>
+            </Container>
+            <h3 className="mb-4">Nearby People</h3>
+            <Container>
+                <Row>
+                    <Col sm={4}>
+                    <FriendsCard />
+                    </Col>
+                    <Col sm={4}>
+                    <FriendsCard />
+                    </Col>
+                    <Col sm={4}>
+                    <FriendsCard />
+                    </Col>
+                </Row>
+            </Container>
+            
         </div>
     );
 };

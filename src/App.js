@@ -6,6 +6,7 @@ import Signup from './Views/Signup';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Views/Home';
+import Demographics from './Views/Demographics';
 
 function App() {
     return (
@@ -22,6 +23,9 @@ function App() {
                 </Route>
                 <Route path="/home">
                     <Home />
+                </Route>
+                <Route path="/demographic">
+                    <Demographics />
                 </Route>
             </Switch>
         </Router>
