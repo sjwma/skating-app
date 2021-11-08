@@ -1,10 +1,8 @@
 import React from 'react';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
+import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
-import { Container, Row, Col } from 'react-grid-system';
 import FriendsCard from '../Components/FriendsCard';
 
 const Home = () => {
@@ -25,13 +23,13 @@ const Home = () => {
             <Container>
                 <Row>
                     <Col sm={4}>
-                    <ParkCard />
+                        <ParkCard />
                     </Col>
                     <Col sm={4}>
-                    <ParkCard />
+                        <ParkCard />
                     </Col>
                     <Col sm={4}>
-                    <ParkCard />
+                        <ParkCard />
                     </Col>
                 </Row>
             </Container>
@@ -39,17 +37,16 @@ const Home = () => {
             <Container>
                 <Row>
                     <Col sm={4}>
-                    <FriendsCard />
+                        <FriendsCard />
                     </Col>
                     <Col sm={4}>
-                    <FriendsCard />
+                        <FriendsCard />
                     </Col>
                     <Col sm={4}>
-                    <FriendsCard />
+                        <FriendsCard />
                     </Col>
                 </Row>
             </Container>
-            
         </div>
     );
 };
