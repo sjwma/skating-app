@@ -7,6 +7,13 @@ import Signup from './Views/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Views/Home';
 import Demographics from './Views/Demographics';
+import Searchpage from './Views/Searchpage';
+import Friendfilter from './Views/Friendfilter';
+import Parkfilter from './Views/Parkfilter';
+import Friendsearchresult from './Views/Friendsearchresult';
+import Parksearchresult from './Views/Parksearchresult';
+
+
 
 function App() {
     return (
@@ -27,6 +34,25 @@ function App() {
                 <Route path="/demographic">
                     <Demographics />
                 </Route>
+                <Route path="/searchpage">
+                    <Searchpage />
+                </Route>
+
+                <Route path="/friendfilter">
+                    <Friendfilter />
+                </Route>
+                <Route path="/parkfilter">
+                    <Parkfilter />
+                </Route>
+
+                <Route path="/parksearchresult">
+                    <Parksearchresult />
+                </Route>
+
+                <Route path="/friendsearchresult">
+                    <Friendsearchresult />
+                </Route>
+
             </Switch>
         </Router>
     );
