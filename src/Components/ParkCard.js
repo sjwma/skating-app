@@ -1,15 +1,24 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import Image from "../Images/spark1.jpg";
-const ParkCard = () => {
-    return (
-        <Card className="mb-4">
-            <Card.Img variant="top" src={Image} width = '400' height = '400' />
-            <Card.Body>
-                <Card.Text>Generic park description</Card.Text>
-            </Card.Body>
-        </Card>
-    );
-};
+import '../css/card-style.css';
 
-export default ParkCard;
+
+const Card = props => {
+
+return(
+    <div className="card text-center shadow">
+        <div className = "overflow">
+            <img src={props.imgsrc} alt = "Image 1" className="card-img-top"/>
+        </div>
+    <div className = "card-body text-dark">
+        <h4 className = "card-title">
+            {props.title}
+        </h4>
+        <p className="card-text text-secondary">
+          {props.description}
+        </p>
+        <a href = "#" className = "btn btn-outline-success"> Details</a> 
+        </div>   
+    </div>
+);
+}
+export default Card;
