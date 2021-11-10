@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import { useHistory } from 'react-router';
 import { BsSearch } from 'react-icons/bs';
 import Card from '../Components/ParkCard';
 import FriendsCard from '../Components/FriendsCard';
@@ -10,26 +9,25 @@ import image3 from '../Images/spark3.jpg';
 import p1 from '../Images/P3.jpg';
 import p2 from '../Images/P4.jpg';
 import p3 from '../Images/P5.jpg';
-
+import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Header from '../Components/Header';
 
 const Home = () => {
-    const history = useHistory();
-
-    const handleClick = (path) => {
+    let history = useHistory();
+    const handleClick=(path)=>{
         history.push(path);
-    };
+    }
+
     return (
         <div className="flex flex-col h-screen mx-4">
             <Header text="Home" />
 
             <InputGroup className="mb-4">
                 <FormControl placeholder="Search" />
-                <Button
-                    variant="text"
-                    onClick={() => handleClick('/searchpage')}
-                >
+                <Button variant="text"
+                onClick={()=>handleClick('/searchpage')}>
+                {/* href="/searchpage"> */}
                     Search
                 </Button>
                 <InputGroup.Text>

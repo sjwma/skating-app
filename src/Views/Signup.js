@@ -1,38 +1,136 @@
-import React from 'react';
-import { useHistory } from 'react-router';
+// import React from 'react';
+// import InputGroup from 'react-bootstrap/InputGroup';
+// import FormControl from 'react-bootstrap/FormControl';
+// import Button from 'react-bootstrap/Button';
+
+// const Signup = () => {
+//     return (
+//         <div className="flex flex-col items-center justify-center h-screen mx-8">
+//             <h1 className="mb-4">Create Account</h1>
+//             <InputGroup className="mb-4">
+//                 <InputGroup.Text>Name</InputGroup.Text>
+//                 <FormControl placeholder="Name" />
+//             </InputGroup>
+//             <InputGroup className="mb-4">
+//                 <InputGroup.Text>Email</InputGroup.Text>
+//                 <FormControl placeholder="Email" />
+//             </InputGroup>
+//             <InputGroup className="mb-4">
+//                 <InputGroup.Text>Password</InputGroup.Text>
+//                 <FormControl placeholder="Password" type = 'password' />
+//             </InputGroup>
+//             <Button variant="outline-primary" href="/demographic">
+//                 Signup
+//             </Button>
+//         </div>
+//     );
+// };
+
+import React, { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import { useHistory } from "react-router-dom";
 
-const Signup = () => {
-    const history = useHistory();
+function Signup() {
+  const [values, setValues] = useState({
+    Name: "", Email: "", Password: ""
+  });
 
-    const handleClick = (path) => {
-        history.push(path);
+  const set = (name) => {
+    return ({ target: { value } }) => {
+      setValues((oldValues) => ({ ...oldValues, [name]: value }));
     };
-    return (
-        <div className="flex flex-col items-center justify-center h-screen mx-8">
-            <h1 className="mb-4">Create Account</h1>
-            <InputGroup className="mb-4">
-                <InputGroup.Text>Name</InputGroup.Text>
-                <FormControl placeholder="Name" />
-            </InputGroup>
-            <InputGroup className="mb-4">
-                <InputGroup.Text>Email</InputGroup.Text>
-                <FormControl placeholder="Email" />
-            </InputGroup>
-            <InputGroup className="mb-4">
-                <InputGroup.Text>Password</InputGroup.Text>
-                <FormControl placeholder="Password" type="password" />
-            </InputGroup>
-            <Button
-                variant="outline-primary"
-                onClick={() => handleClick('/demographic')}
-            >
-                Signup
-            </Button>
-        </div>
-    );
-};
+  };
 
-export default Signup;
+  const saveFormData = async () => {
+    const response = await fetch('/api/registration', {
+      method: 'POST',
+      body: JSON.stringify(values)
+    });
+    if (response.status !== 200) {
+      throw new Error(`Request failed: ${response.status}`); 
+    }
+  }
+  let history = useHistory();
+  const handleSubmit = e => {
+    e.preventDefault();
+    e.stopPropagation();
+                                  
+    history.push("/demographic");
+   };
+
+//   const onSubmit = async (event) => {
+//     event.preventDefault(); // Prevent default submission
+//     try {
+//       await saveFormData();
+//       alert('Your registration was successfully submitted!');
+//       setValues({
+//         name: '', color: '', age: '', habits: '' 
+//       });
+//     } 
+//     catch (e) {
+//       //alert(`Registration failed! ${e.message}`);
+//       alert('Your registration was successfully submitted!');
+      
+//     }
+    
+
+      
+  
+ 
+  return (
+    // <form onSubmit={onSubmit}> 
+    <form onSubmit={handleSubmit}>
+      <h1 className="mb-4">Create Account</h1>
+<div>
+      <label className="mb-4">Name*:</label>
+      <input 
+        type="text" required
+        value={values.Name} onChange={set("Name")}
+      />
+</div>
+
+
+
+<div>
+      <label className="mb-4">Email*:</label>
+      <input 
+        type="email" required
+        value={values.Email} onChange={set("Email")}
+      />
+</div>
+
+<div>
+      <label className="mb-4">Password*:</label>
+      <input 
+        type="password" required
+        value={values.Password} onChange={set("Password")}
+      />
+</div>
+
+<div>
+      <button type="submit">Submit</button>
+</div>          
+
+{/* <div>
+            <Button variant="outline-primary" href='/home'>
+                 Back
+            </Button>  
+</div>    */}
+    </form>
+  );
+}
+
+export default function Page() {
+  return (
+    <div className="App">
+      <Signup />
+    </div>
+  );
+}
+
+
+
+
+
