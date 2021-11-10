@@ -20,7 +20,7 @@ const Home = () => {
 
             <InputGroup className="mb-4">
                 <FormControl placeholder="Search" />
-                <Button variant="text" href="/searchpage">
+                <Button variant="text" href="/skating-app/searchpage/">
                     Search
                 </Button>
                 <InputGroup.Text>

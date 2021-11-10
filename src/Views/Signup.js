@@ -17,9 +17,9 @@ const Signup = () => {
             </InputGroup>
             <InputGroup className="mb-4">
                 <InputGroup.Text>Password</InputGroup.Text>
-                <FormControl placeholder="Password" type = 'password' />
+                <FormControl placeholder="Password" type="password" />
             </InputGroup>
-            <Button variant="outline-primary" href="/demographic">
+            <Button variant="outline-primary" href="/skating-app/demographic/">
                 Signup
             </Button>
         </div>
@@ -27,5 +27,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-

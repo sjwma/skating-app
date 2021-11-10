@@ -6,7 +6,6 @@ import ParkCard from '../Components/ParkCard';
 import Button from 'react-bootstrap/Button';
 
 const Parksearchresult = () => {
-
     return (
         <div className="flex flex-col h-screen mx-4">
             <div className="flex flex-row justify-between items-center mt-4 mb-4">
@@ -15,7 +14,6 @@ const Parksearchresult = () => {
                 <BsPerson />
             </div>
 
-           
             <Container>
                 <Row>
                     <Col sm={4}>
@@ -29,9 +27,9 @@ const Parksearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href='/home'>
+            <Button variant="outline-primary" href="/skating-app/home/">
                 Back
-            </Button>  
+            </Button>
         </div>
     );
 };

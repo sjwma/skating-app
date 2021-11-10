@@ -9,12 +9,16 @@ const Main = () => {
             <Button
                 variant="outline-primary"
                 size="lg"
-                href="/login"
+                href="/skating-app/login/"
                 className="mb-4"
             >
                 Login
             </Button>
-            <Button variant="outline-primary" size="lg" href="/signup">
+            <Button
+                variant="outline-primary"
+                size="lg"
+                href="/skating-app/signup/"
+            >
                 Sign Up
             </Button>
         </div>

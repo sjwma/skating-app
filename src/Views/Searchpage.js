@@ -10,13 +10,13 @@ const Searchpage = () => {
 
             <Button
                 variant="outline-primary"
-                href="/friendfilter"
+                href="/skating-app/friendfilter/"
                 className="mb-4"
             >
                 Friends
             </Button>
 
-            <Button variant="outline-primary" href="/parkfilter">
+            <Button variant="outline-primary" href="/skating-app/parkfilter/">
                 Parks
             </Button>
         </div>

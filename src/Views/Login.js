@@ -13,9 +13,9 @@ const Login = () => {
             </InputGroup>
             <InputGroup className="mb-4">
                 <InputGroup.Text>Password</InputGroup.Text>
-                <FormControl placeholder="Password" type = 'password'/>
+                <FormControl placeholder="Password" type="password" />
             </InputGroup>
-            <Button variant="outline-primary" href="/home">
+            <Button variant="outline-primary" href="/skating-app/home/">
                 Login
             </Button>
         </div>

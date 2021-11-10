@@ -46,7 +46,11 @@ const Friendsearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href="/home" className="mb-4">
+            <Button
+                variant="outline-primary"
+                href="/skating-app/home/"
+                className="mb-4"
+            >
                 Back
             </Button>
         </div>
