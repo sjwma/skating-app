@@ -55,7 +55,7 @@ const Parkfilter = () => {
         history.push(path);
     };
     return (
-        <div>
+        <div className="m-4">
             <h1 className="mb-4">
                 Enter information about parks you are looking for
             </h1>
