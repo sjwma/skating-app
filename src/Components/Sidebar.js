@@ -3,6 +3,7 @@ import { ListGroup, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BiHome, BiSearch, BiGroup, BiHeart, BiExit } from 'react-icons/bi';
 
+// TODO: remove blue styled text, animate page transitions
 const Sidebar = ({ open, handleClose }) => {
     return (
         <>

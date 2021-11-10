@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
-import ParkCard from '../Components/ParkCard';
-import React, { Component } from 'react';
 import Card from '../Components/ParkCard';
 import FriendsCard from '../Components/FriendsCard';
 import image1 from '../Images/spark1.jpg';
