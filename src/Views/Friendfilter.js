@@ -50,6 +50,11 @@ const gender_options = [
 //   };
 // TODO: Not finished yet
 const Friendfilter = () => {
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+    };
     return (
         <div className="m-4">
             <h1 className="mb-4">
@@ -73,7 +78,7 @@ const Friendfilter = () => {
             </InputGroup>
             <Button
                 variant="outline-primary"
-                href="/friendsearchresult/"
+                onClick={() => handleClick('/friendsearchresult')}
                 className="mb-4"
             >
                 Submit

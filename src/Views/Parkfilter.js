@@ -49,6 +49,11 @@ const type_options = [
 //   };
 // TODO: Not finished yet
 const Parkfilter = () => {
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+    };
     return (
         <div>
             <h1 className="mb-4">
@@ -87,7 +92,10 @@ const Parkfilter = () => {
                 <Select options={time_options} />
             </InputGroup>
 
-            <Button variant="outline-primary" href="/parksearchresult/">
+            <Button
+                variant="outline-primary"
+                onClick={() => handleClick('/parksearchresult')}
+            >
                 Submit
             </Button>
         </div>

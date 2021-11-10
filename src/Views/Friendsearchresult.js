@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import FriendsCard from '../Components/FriendsCard';
@@ -11,6 +12,11 @@ import p2 from '../Images/P4.jpg';
 import p3 from '../Images/P5.jpg';
 
 const Friendsearchresult = () => {
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+    };
     return (
         <div className="flex flex-col h-screen mx-4">
             <Header text="Friend search result" />
@@ -46,7 +52,11 @@ const Friendsearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href="/home/" className="mb-4">
+            <Button
+                variant="outline-primary"
+                onClick={() => handleClick('/home')}
+                className="mb-4"
+            >
                 Back
             </Button>
         </div>

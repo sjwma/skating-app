@@ -39,6 +39,12 @@ const social_options = [
 //   };
 // TODO: Not finished yet
 const Demographics = () => {
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+    };
+
     return (
         <div>
             <h1 className="mb-4">First Time Demographics Setup</h1>
@@ -62,7 +68,10 @@ const Demographics = () => {
                 <InputGroup.Text>Frequency</InputGroup.Text>
                 <Select options={freq_options} />
             </InputGroup>
-            <Button variant="outline-primary" href="/home/">
+            <Button
+                variant="outline-primary"
+                onClick={() => handleClick('/home')}
+            >
                 Submit
             </Button>
             )

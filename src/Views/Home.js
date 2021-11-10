@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import { BsSearch } from 'react-icons/bs';
 import Card from '../Components/ParkCard';
 import FriendsCard from '../Components/FriendsCard';
@@ -14,13 +15,21 @@ import Button from 'react-bootstrap/Button';
 import Header from '../Components/Header';
 
 const Home = () => {
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+    };
     return (
         <div className="flex flex-col h-screen mx-4">
             <Header text="Home" />
 
             <InputGroup className="mb-4">
                 <FormControl placeholder="Search" />
-                <Button variant="text" href="/searchpage/">
+                <Button
+                    variant="text"
+                    onClick={() => handleClick('/searchpage')}
+                >
                     Search
                 </Button>
                 <InputGroup.Text>
