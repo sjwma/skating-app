@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import React from 'react';
+import { ListGroup, Offcanvas } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { BiHome, BiSearch, BiGroup, BiHeart, BiExit } from 'react-icons/bi';
 
-const Sidebar = () => {
-    const [open, setOpen] = useState(false);
-
+const Sidebar = ({ open, handleClose }) => {
     return (
         <>
-            <ListGroup as="ul">
-                <ListGroup.Item as="li" className="flex flex-row">
-                    <BiHome className="text-3xl" />
-                    Home
-                </ListGroup.Item>
-                <ListGroup.Item as="li" className="flex flex-row">
-                    <BiSearch className="text-3xl" />
-                    Search
-                </ListGroup.Item>
-                <ListGroup.Item as="li" className="flex flex-row">
-                    <BiGroup className="text-3xl" />
-                    Friends
-                </ListGroup.Item>
-                <ListGroup.Item as="li" className="flex flex-row">
-                    <BiHeart className="text-3xl" />
-                    Favorites
-                </ListGroup.Item>
-                <ListGroup.Item as="li" className="flex flex-row">
-                    <BiExit className="text-3xl" />
-                    Logout
-                </ListGroup.Item>
-            </ListGroup>
+            <Offcanvas show={open} onHide={handleClose} className="w-4/5">
+                <Offcanvas.Body>
+                    <ListGroup as="ul">
+                        <ListGroup.Item as="li" className="flex flex-row py-4">
+                            <Link
+                                to="/home"
+                                className="flex text-3xl items-center"
+                            >
+                                <BiHome className="mr-4" />
+                                Home
+                            </Link>
+                        </ListGroup.Item>
+                        <ListGroup.Item as="li" className="flex flex-row py-4">
+                            <div className="flex text-3xl items-center">
+                                <BiSearch className="mr-4" />
+                                Search
+                            </div>
+                        </ListGroup.Item>
+                        <ListGroup.Item as="li" className="flex flex-row py-4">
+                            <div className="flex text-3xl items-center">
+                                <BiGroup className="text-3xl mr-4" />
+                                Friends
+                            </div>
+                        </ListGroup.Item>
+                        <ListGroup.Item as="li" className="flex flex-row py-4">
+                            <div className="flex text-3xl items-center">
+                                <BiHeart className="mr-4" />
+                                Favorites
+                            </div>
+                        </ListGroup.Item>
+                        <ListGroup.Item as="li" className="flex flex-row py-4">
+                            <div className="flex text-3xl items-center">
+                                <BiExit className="mr-4" />
+                                Logout
+                            </div>
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Offcanvas.Body>
+            </Offcanvas>
         </>
     );
 };
