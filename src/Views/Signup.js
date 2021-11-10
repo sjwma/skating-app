@@ -19,7 +19,7 @@ const Signup = () => {
                 <InputGroup.Text>Password</InputGroup.Text>
                 <FormControl placeholder="Password" type="password" />
             </InputGroup>
-            <Button variant="outline-primary" href="/skating-app/demographic/">
+            <Button variant="outline-primary" href="/demographic/">
                 Signup
             </Button>
         </div>

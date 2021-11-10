@@ -73,7 +73,7 @@ const Friendfilter = () => {
             </InputGroup>
             <Button
                 variant="outline-primary"
-                href="/skating-app/friendsearchresult/"
+                href="/friendsearchresult/"
                 className="mb-4"
             >
                 Submit

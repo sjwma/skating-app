@@ -27,7 +27,7 @@ const Parksearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href="/skating-app/home/">
+            <Button variant="outline-primary" href="/home/">
                 Back
             </Button>
         </div>
