@@ -13,8 +13,6 @@ import Parkfilter from './Views/Parkfilter';
 import Friendsearchresult from './Views/Friendsearchresult';
 import Parksearchresult from './Views/Parksearchresult';
 
-
-
 function App() {
     return (
         <Router>
@@ -52,7 +50,6 @@ function App() {
                 <Route path="/friendsearchresult">
                     <Friendsearchresult />
                 </Route>
-
             </Switch>
         </Router>
     );
