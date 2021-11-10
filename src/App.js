@@ -12,7 +12,6 @@ import Friendfilter from './Views/Friendfilter';
 import Parkfilter from './Views/Parkfilter';
 import Friendsearchresult from './Views/Friendsearchresult';
 import Parksearchresult from './Views/Parksearchresult';
-import Sidebar from './Components/Sidebar';
 
 function App() {
     return (
@@ -20,9 +19,6 @@ function App() {
             <Switch>
                 <Route exact path="/">
                     <Main />
-                </Route>
-                <Route path="/side">
-                    <Sidebar />
                 </Route>
                 <Route path="/login">
                     <Login />

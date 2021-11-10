@@ -19,28 +19,37 @@ const Sidebar = ({ open, handleClose }) => {
                             </Link>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" className="flex flex-row py-4">
-                            <div className="flex text-3xl items-center">
+                            <Link
+                                to="/searchpage"
+                                className="flex text-3xl items-center"
+                            >
                                 <BiSearch className="mr-4" />
                                 Search
-                            </div>
+                            </Link>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" className="flex flex-row py-4">
-                            <div className="flex text-3xl items-center">
+                            <Link
+                                to="/friendsearchresult"
+                                className="flex text-3xl items-center"
+                            >
                                 <BiGroup className="text-3xl mr-4" />
                                 Friends
-                            </div>
+                            </Link>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" className="flex flex-row py-4">
-                            <div className="flex text-3xl items-center">
+                            <Link
+                                to="/favorites"
+                                className="flex text-3xl items-center"
+                            >
                                 <BiHeart className="mr-4" />
                                 Favorites
-                            </div>
+                            </Link>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" className="flex flex-row py-4">
-                            <div className="flex text-3xl items-center">
+                            <Link to="/" className="flex text-3xl items-center">
                                 <BiExit className="mr-4" />
                                 Logout
-                            </div>
+                            </Link>
                         </ListGroup.Item>
                     </ListGroup>
                 </Offcanvas.Body>

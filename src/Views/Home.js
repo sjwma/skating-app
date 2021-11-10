@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import { FiMenu } from 'react-icons/fi';
-import { BsPerson, BsSearch } from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
 import FriendsCard from '../Components/FriendsCard';
 import Button from 'react-bootstrap/Button';
-import Sidebar from '../Components/Sidebar';
+import Header from '../Components/Header';
 
 const Home = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const handleClose = () => setSidebarOpen(false);
-    const handleShow = () => setSidebarOpen(true);
-
     return (
         <div className="flex flex-col h-screen mx-4">
-            <div className="flex flex-row justify-between items-center my-4">
-                <FiMenu className="text-3xl" onClick={handleShow} />
-                <h1>Home</h1>
-                <BsPerson className="text-3xl" />
-            </div>
+            <Header text="Home" />
 
             <InputGroup className="mb-4">
                 <FormControl placeholder="Search" />
@@ -58,7 +49,6 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <Sidebar open={sidebarOpen} handleClose={handleClose} />
         </div>
     );
 };

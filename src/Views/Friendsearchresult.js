@@ -4,17 +4,12 @@ import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import FriendsCard from '../Components/FriendsCard';
 import Button from 'react-bootstrap/Button';
+import Header from '../Components/Header';
 
 const Friendsearchresult = () => {
-
     return (
         <div className="flex flex-col h-screen mx-4">
-            <div className="flex flex-row justify-between items-center mt-4 mb-4">
-                <FiMenu />
-                <h1>Friend search result</h1>
-                <BsPerson />
-            </div>
-
+            <Header text="Friend search result" />
 
             <Container>
                 <Row>
@@ -29,9 +24,9 @@ const Friendsearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href='/home'>
+            <Button variant="outline-primary" href="/home">
                 Back
-            </Button>  
+            </Button>
         </div>
     );
 };
