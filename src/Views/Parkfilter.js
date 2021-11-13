@@ -186,7 +186,7 @@ function Parkfilter() {
 <div>
       <label className="mb-4">Cost per Hour Min:</label>
       <input
-        type="number"  min="1"
+        type="number"  min="0"
         value={values.Cost1} onChange={set("Cost1")} 
         />
 </div> 
@@ -194,7 +194,7 @@ function Parkfilter() {
 <div>
         <label className="mb-4">Cost per Hour Max:</label>
         <input
-        type="number"  min="1"
+        type="number"  min="0"
         value={values.Cost2} onChange={set("Cost2")} 
 
       />
