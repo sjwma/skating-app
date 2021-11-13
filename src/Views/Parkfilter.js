@@ -110,11 +110,11 @@ import { useHistory } from "react-router-dom";
 const Experience = ["Beginner", "Intermediate", "Expert"];
 const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill","Others"];
 const Park_type = ["Public", "Private", "Both"];
-
+const Location = ["Yes", "No"];
 
 function Parkfilter() {
   const [values, setValues] = useState({
-    Name: "", Tricks: "", Skating_Type: "", Cost1: "",Cost2: "", Start_time: "",End_time: "",Park_type: "", Start_date: "", End_date: ""
+    Name: "", Tricks: "", Skating_Type: "", Cost1: "",Cost2: "", Start_time: "",End_time: "",Park_type: "", Start_date: "", End_date: "", Location:""
   });
 
   const set = (name) => {
@@ -234,6 +234,17 @@ function Parkfilter() {
         value={values.End_time} onChange={set("End_time")} 
       />
 </div> 
+
+<div>
+<label className="mb-4">Enable location:</label>
+<select 
+        required
+        value={values.Location} onChange={set("Location")}
+      >
+        <option value="">Select</option>
+        {Location.map(c => <option key={c}>{c}</option>)}
+      </select>
+</div>
 
 
 <div>

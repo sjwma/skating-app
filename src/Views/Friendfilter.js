@@ -91,11 +91,11 @@ import Button from 'react-bootstrap/Button';
 const Experience = ["Beginner", "Intermediate", "Expert"];
 const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill","Others"];
 const Gender = ["Female", "Male", "X"];
-
+const Location = ["Yes", "No"];
 
 function Friendfilter() {
   const [values, setValues] = useState({
-    Experience: "", Skating_Type: "", Gender: "", Age: ""
+    Experience: "", Skating_Type: "", Gender: "", Age: "",  Location:""
   });
 
   const set = (name) => {
@@ -188,6 +188,17 @@ function Friendfilter() {
         value={values.Age} onChange={set("Age")} 
       />
 </div> 
+
+<div>
+<label className="mb-4">Enable location:</label>
+<select 
+        required
+        value={values.Location} onChange={set("Location")}
+      >
+        <option value="">Select</option>
+        {Location.map(c => <option key={c}>{c}</option>)}
+      </select>
+</div>
 
 
 <div>
