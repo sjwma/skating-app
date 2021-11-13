@@ -1,15 +1,28 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import Image from "../Images/P1.jpg";
-const FriendsCard = () => {
+import '../css/friend-card-style.css';
+
+const Card = ({ imgsrc, title, experience, Age, TOS }) => {
     return (
-        <Card className="mb-4">
-            <Card.Img variant="top" src={Image} width = '400' height = '400' />
-            <Card.Body>
-                <Card.Text>Generic friend description</Card.Text>
-            </Card.Body>
-        </Card>
+        <div className="card text-center shadow mb-4">
+            <div className="overflow-hidden">
+                <img
+                    src={imgsrc}
+                    alt="Image 1"
+                    className="card-img-top friend-img"
+                />
+            </div>
+            <div className="card-body text-dark friend-body">
+                <h4 className="card-title">{title}</h4>
+                <h5 className="card-text text-secondary friend">
+                    {experience}
+                </h5>
+                <h5 className="card-text text-secondary friend">{Age}</h5>
+                <h5 className="card-text text-secondary friend">{TOS}</h5>
+                <a href="#" className="btn btn-outline-success">
+                    Details
+                </a>
+            </div>
+        </div>
     );
 };
-
-export default FriendsCard;
+export default Card;
