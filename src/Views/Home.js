@@ -60,6 +60,34 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <h4> Nearby Spots</h4>
+            <div className="conatainer-fluid d-flex justify-content-center">
+                <div className="row">
+                    <div className="col-md-4">
+                        <Card
+                            imgsrc={p1}
+                            title="Barney E Wood Skatepark"
+                            description="This is my home park and I know it look pretty whack and it’s a pre fab junt. But honestly I have had some of the best skate sessions here and the people who come here in the morning are some of the coolest people around."
+                        />
+                    </div>
+                    <div className="col-md-4">
+                        <Card
+                            imgsrc={image2}
+                            title="The Colony Skate Park"
+                            description="Smooth concrete and plasticoated elements.  Good place to learn and practice.  Free park part of Farmers Branch Recreational Center.  Not much shade so it does get hot mid-day.  Shade in morning and late afternoon."
+                        />
+                    </div>
+                    <div className="col-md-4">
+                        <Card
+                            imgsrc={p2}
+                            title="Carpenter Skate Park"
+                            description="Was really impressed with this little park. Visiting from out of town. Even though the space is small they did a good job of making the most of it. Definitely a street style park there at all different sizes of ledges and a few rails."
+                        />
+                    </div>
+                </div>
+            </div>
+
             <h4> Nearby People</h4>
             <div className="conatainer-fluid d-flex justify-content-center">
                 <div className="row">

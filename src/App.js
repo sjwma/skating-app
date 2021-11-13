@@ -10,9 +10,10 @@ import Demographics from './Views/Demographics';
 import Searchpage from './Views/Searchpage';
 import Friendfilter from './Views/Friendfilter';
 import Parkfilter from './Views/Parkfilter';
+import Spotfilter from './Views/Spotfilter';
 import Friendsearchresult from './Views/Friendsearchresult';
 import Parksearchresult from './Views/Parksearchresult';
-
+import Spotsearchresult from './Views/Spotsearchresult';
 
 
 function App() {
@@ -47,6 +48,14 @@ function App() {
 
                 <Route path="/parksearchresult">
                     <Parksearchresult />
+                </Route>
+
+                <Route path="/spotfilter">
+                    <Spotfilter />
+                </Route>
+
+                <Route path="/spotsearchresult">
+                    <Spotsearchresult />
                 </Route>
 
                 <Route path="/friendsearchresult">
