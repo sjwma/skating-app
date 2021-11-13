@@ -137,7 +137,7 @@ function Spotfilter() {
     e.preventDefault();
     e.stopPropagation();
                                   
-    history.push("/parksearchresult");
+    history.push("/spotsearchresult");
    };
 
 //   const onSubmit = async (event) => {
