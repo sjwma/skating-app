@@ -4,8 +4,13 @@ import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
 import Button from 'react-bootstrap/Button';
+import { useHistory } from "react-router-dom";
 
 const Parksearchresult = () => {
+    let history = useHistory();
+    const handleClick=(path)=>{
+        history.push(path);
+    }
 
     return (
         <div className="flex flex-col h-screen mx-4">
@@ -29,7 +34,7 @@ const Parksearchresult = () => {
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href='/home'>
+            <Button variant="outline-primary" onClick={()=>handleClick('/home')}>
                 Back
             </Button>  
         </div>

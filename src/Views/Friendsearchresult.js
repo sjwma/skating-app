@@ -4,34 +4,61 @@ import { FiMenu } from 'react-icons/fi';
 import { BsPerson, BsSearch } from 'react-icons/bs';
 import FriendsCard from '../Components/FriendsCard';
 import Button from 'react-bootstrap/Button';
+import Header from '../Components/Header';
+
+import { useHistory } from "react-router-dom";
+
+import p1 from '../Images/P3.jpg';
+import p2 from '../Images/P4.jpg';
+import p3 from '../Images/P5.jpg';
 
 const Friendsearchresult = () => {
+    let history = useHistory();
+    const handleClick=(path)=>{
+        history.push(path);
+    }
 
     return (
         <div className="flex flex-col h-screen mx-4">
-            <div className="flex flex-row justify-between items-center mt-4 mb-4">
-                <FiMenu />
-                <h1>Friend search result</h1>
-                <BsPerson />
-            </div>
-
+            <Header text="Friend search result" />
 
             <Container>
                 <Row>
                     <Col sm={4}>
-                        <FriendsCard />
+                        <FriendsCard
+                            imgsrc={p1}
+                            title="Oscar"
+                            experience="Experience: Beginner"
+                            Age="Age: 26"
+                            TOS="Skateboarder"
+                        />
                     </Col>
                     <Col sm={4}>
-                        <FriendsCard />
+                        <FriendsCard
+                            imgsrc={p2}
+                            title="Sally"
+                            experience="Experience: Intermediate"
+                            Age="Age: 26"
+                            TOS="Skateboarder"
+                        />
                     </Col>
                     <Col sm={4}>
-                        <FriendsCard />
+                        <FriendsCard
+                            imgsrc={p3}
+                            title="Angela"
+                            experience="Experience: Expert"
+                            Age="Age: 22"
+                            TOS="Road Skater"
+                        />
                     </Col>
                 </Row>
             </Container>
-            <Button variant="outline-primary" href='/home'>
+            <Button variant="outline-primary" 
+            onClick={()=>handleClick('/home')}
+ 
+             className="mb-4">
                 Back
-            </Button>  
+            </Button>
         </div>
     );
 };
