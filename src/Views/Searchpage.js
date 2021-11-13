@@ -31,6 +31,13 @@ const Searchpage = () => {
             {/* href="/parkfilter"> */}
                 Parks
             </Button>
+
+            <Button variant="outline-primary" 
+             onClick={()=>handleClick('/spotfilter')}>
+            {/* href="/parkfilter"> */}
+                Spots
+            </Button>
+
         </div>
     );
 };

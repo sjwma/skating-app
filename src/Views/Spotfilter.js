@@ -112,9 +112,9 @@ const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill"
 const Park_type = ["Public", "Private", "Both"];
 
 
-function Parkfilter() {
+function Spotfilter() {
   const [values, setValues] = useState({
-    Name: "", Tricks: "", Skating_Type: "", Cost1: "",Cost2: "", Start_time: "",End_time: "",Park_type: "", Start_date: "", End_date: "", Location:""
+    Name: "", Tricks: "", Skating_Type: "",  Start_time: "",End_time: "",Park_type: "", Start_date: "", End_date: "", Location:""
   });
 
   const set = (name) => {
@@ -137,7 +137,7 @@ function Parkfilter() {
     e.preventDefault();
     e.stopPropagation();
                                   
-    history.push("/parksearchresult");
+    history.push("/spotsearchresult");
    };
 
 //   const onSubmit = async (event) => {
@@ -164,12 +164,12 @@ function Parkfilter() {
     // <form onSubmit={onSubmit}> 
     <form onSubmit={handleSubmit}>
     
-      <h1 className="mb-4">Enter information of parks you are looking for</h1>
+      <h1 className="mb-4">Enter information of spots you are looking for</h1>
 
       <div>
       <label className="mb-4">Name:</label>
       <input 
-        type="text" placeholder="Highland park"
+        type="text" placeholder="UTD ECSN"
         value={values.Name} onChange={set("Name")}
       />
 </div>
@@ -183,7 +183,7 @@ function Parkfilter() {
 </div>
 
 
-<div>
+{/* <div>
       <label className="mb-4">Cost per Hour Min:</label>
       <input
         type="number"  min="0"
@@ -198,7 +198,7 @@ function Parkfilter() {
         value={values.Cost2} onChange={set("Cost2")} 
 
       />
-</div> 
+</div>  */}
 
 
 <div>
@@ -270,7 +270,7 @@ export default function Page() {
 
      return (
        <div className="App">
-         <Parkfilter />
+         <Spotfilter />
        </div>
      );
   }

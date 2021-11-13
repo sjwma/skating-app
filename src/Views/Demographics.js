@@ -90,13 +90,15 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
 const Experience = ["Beginner", "Intermediate", "Expert"];
+const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill","Others"];
 const Social = ["Group", "Alone", "Both"];
+const Location = ["Yes", "No"];
 const Freq = ["Once", "Twice", "Thrice","Every Day"];
 
 
 function RegisterYourCatForm() {
   const [values, setValues] = useState({
-    Typeofskate: "", Experience: "", Tricks: "", Social: "",Freq:""
+    Skating_Type: "", Experience: "", Tricks: "", Social: "",Freq: "", Address: "" , Phone :"", Location:""
   });
 
   const set = (name) => {
@@ -147,11 +149,13 @@ function RegisterYourCatForm() {
      <form onSubmit={handleSubmit}>
       <h1 className="mb-4">First Time Demographics Setup</h1>
 <div>
-      <label className="mb-4">Type of Skating*:</label>
-      <input 
-        type="text" required
-        value={values.Typeofskate} onChange={set("Typeofskate")}
-      />
+<label className="mb-4">Type of Skating:</label>
+      <select 
+        value={values.Skating_Type} onChange={set("Skating_Type")}
+      >
+        <option value="">Select Type</option>
+        {Skating_Type.map(c => <option key={c}>{c}</option>)}
+      </select>
 </div>
 
 <div>
@@ -166,9 +170,9 @@ function RegisterYourCatForm() {
 </div>
 
 <div>
-      <label className="mb-4">Tricks*:</label>
+      <label className="mb-4">Tricks:</label>
       <input 
-        type="text" required
+        type="text" placeholder="Alpha flip"
         value={values.Tricks} onChange={set("Tricks")}
       />
 </div>
@@ -200,6 +204,33 @@ function RegisterYourCatForm() {
       >
         <option value="">Social Preference</option>
         {Freq.map(c => <option key={c}>{c}</option>)}
+      </select>
+</div>
+
+<div>
+      <label className="mb-4">Address:</label>
+      <input 
+        type="text" placeholder=""
+        value={values.Address} onChange={set("Address")}
+      />
+</div>
+
+<div>
+      <label className="mb-4">Phone number:</label>
+      <input 
+        type="tel" placeholder="123-456-7890"
+        value={values.Phone} onChange={set("Phone")}
+      />
+</div>
+
+<div>
+<label className="mb-4">Enable location:</label>
+<select 
+        required
+        value={values.Location} onChange={set("Location")}
+      >
+        <option value="">Select</option>
+        {Location.map(c => <option key={c}>{c}</option>)}
       </select>
 </div>
 

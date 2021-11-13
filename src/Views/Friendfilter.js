@@ -95,7 +95,7 @@ const Gender = ["Female", "Male", "X"];
 
 function Friendfilter() {
   const [values, setValues] = useState({
-    Experience: "", Skating_Type: "", Gender: "", Age: ""
+    Experience: "", Skating_Type: "", Gender: "", Age: "",  Location:""
   });
 
   const set = (name) => {
@@ -147,7 +147,7 @@ function Friendfilter() {
       <h1 className="mb-4">Enter information of friends you are looking for</h1>
 
 
-<div>
+<div align="center">
       <label className="mb-4">Experience*:</label>
       <select 
         required
@@ -188,6 +188,14 @@ function Friendfilter() {
         value={values.Age} onChange={set("Age")} 
       />
 </div> 
+
+<div>
+      <label className="mb-4">Enter zip code:</label>
+      <input 
+        type="text" placeholder="75080"
+        value={values.Location} onChange={set("Location")}
+      />
+</div>
 
 
 <div>
