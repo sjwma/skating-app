@@ -225,8 +225,13 @@ function RegisterYourCatForm() {
 
 <div>
 <label className="mb-4">Enable location:</label>
-<input type="radio" value={values.Location} onChange={set("Location")} /> Yes
-<input type="radio" value={values.Location} onChange={set("Location")} /> No
+<select 
+        required
+        value={values.Location} onChange={set("Location")}
+      >
+        <option value="">Select</option>
+        {Location.map(c => <option key={c}>{c}</option>)}
+      </select>
 </div>
 
 <div>
