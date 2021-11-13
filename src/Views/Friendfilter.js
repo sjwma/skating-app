@@ -147,7 +147,7 @@ function Friendfilter() {
       <h1 className="mb-4">Enter information of friends you are looking for</h1>
 
 
-<div>
+<div align="center">
       <label className="mb-4">Experience*:</label>
       <select 
         required

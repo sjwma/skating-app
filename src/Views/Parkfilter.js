@@ -189,7 +189,10 @@ function Parkfilter() {
         type="number"  min="1"
         value={values.Cost1} onChange={set("Cost1")} 
         />
-        <label className="mb-4">Max:</label>
+</div> 
+
+<div>
+        <label className="mb-4">Cost per Hour Max:</label>
         <input
         type="number"  min="1"
         value={values.Cost2} onChange={set("Cost2")} 
@@ -213,7 +216,7 @@ function Parkfilter() {
 
 
  <div>
- <label className="mb-4">Start Time:</label>
+ <label className="mb-4">Start Time:  </label>
       <input
         type="date"  
         value={values.Start_date} onChange={set("Start_date")} 
@@ -221,14 +224,17 @@ function Parkfilter() {
         <input
         type="time"  
         value={values.Start_time} onChange={set("Start_time")} 
-        
         />
-        
-        <label className="mb-4">End Time:</label>
+        </div>        
+      
+        <div>
+        <label className="mb-4">End Time:  </label>
         <input
         type="date"  min="1"
         value={values.End_date} onChange={set("End_date")} 
         />
+        
+    
         <input
         type="time"  
         value={values.End_time} onChange={set("End_time")} 
