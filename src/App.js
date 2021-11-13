@@ -15,33 +15,39 @@ import Parksearchresult from './Views/Parksearchresult';
 
 function App() {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Switch>
-                <Route exact path="/" component={Main} />
-                <Route exact path="/login/" component={Login} />
-                <Route path="/signup/" component={Signup} />
-                <Route path="/home/">
+                <Route exact path="/">
+                    <Main />
+                </Route>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/signup">
+                    <Signup />
+                </Route>
+                <Route path="/home">
                     <Home />
                 </Route>
-                <Route path="/demographic/">
+                <Route path="/demographic">
                     <Demographics />
                 </Route>
-                <Route path="/searchpage/">
+                <Route path="/searchpage">
                     <Searchpage />
                 </Route>
 
-                <Route path="/friendfilter/">
+                <Route path="/friendfilter">
                     <Friendfilter />
                 </Route>
-                <Route path="/parkfilter/">
+                <Route path="/parkfilter">
                     <Parkfilter />
                 </Route>
 
-                <Route path="/parksearchresult/">
+                <Route path="/parksearchresult">
                     <Parksearchresult />
                 </Route>
 
-                <Route path="/friendsearchresult/">
+                <Route path="/friendsearchresult">
                     <Friendsearchresult />
                 </Route>
             </Switch>
