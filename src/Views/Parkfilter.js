@@ -110,7 +110,7 @@ import { useHistory } from "react-router-dom";
 const Experience = ["Beginner", "Intermediate", "Expert"];
 const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill","Others"];
 const Park_type = ["Public", "Private", "Both"];
-const Location = ["Yes", "No"];
+
 
 function Parkfilter() {
   const [values, setValues] = useState({
@@ -236,14 +236,11 @@ function Parkfilter() {
 </div> 
 
 <div>
-<label className="mb-4">Enable location:</label>
-<select 
-        required
+      <label className="mb-4">Enter zip code:</label>
+      <input 
+        type="text" placeholder="75080"
         value={values.Location} onChange={set("Location")}
-      >
-        <option value="">Select</option>
-        {Location.map(c => <option key={c}>{c}</option>)}
-      </select>
+      />
 </div>
 
 
