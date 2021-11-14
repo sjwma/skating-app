@@ -5,6 +5,10 @@ import { BsPerson, BsSearch } from 'react-icons/bs';
 import ParkCard from '../Components/ParkCard';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
+import p1 from '../Images/P3.jpg';
+import p2 from '../Images/P4.jpg';
+import p3 from '../Images/P5.jpg';
+
 
 const Parksearchresult = () => {
     let history = useHistory();

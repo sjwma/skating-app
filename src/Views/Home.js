@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
 import Card from '../Components/ParkCard';
+import SpotCard from '../Components/SpotCard';
 import FriendsCard from '../Components/FriendsCard';
 import image1 from '../Images/spark1.jpg';
 import image2 from '../Images/spark2.jpg';
@@ -71,7 +72,7 @@ const Home = () => {
             <div className="conatainer-fluid d-flex justify-content-center">
                 <div className="row">
                     <div className="col-md-4">
-                        <Card
+                        <SpotCard
                             imgsrc={s1}
                             title="Vivian Field Middle School"
                             description="Beautiful place. I always enjoy my walks here. Sometimes its quite busy with familys, fitness groups, photoshoots even but all in all very peaceful. It's big enough to find your own little spot if you like."
@@ -79,7 +80,7 @@ const Home = () => {
                     </div>
 
                     <div className="col-md-4">
-                        <Card
+                        <SpotCard
                             imgsrc={s2}
                             title="Mandalay Double Set Rail"
                             description="It was perfect for kids, and parents who want to walk simultaneously, with a good size pergola for shade.   Comparing to the average solitary adventure of only a slide and swings, this playground activities are bountiful and great."
@@ -87,7 +88,7 @@ const Home = () => {
                     </div>
 
                     <div className="col-md-4">
-                        <Card
+                        <SpotCard
                             imgsrc={s3}
                             title="Blue Banks"
                             description="This is a great little playground!  My kid and I nicknamed it Parkour Park because it has a good set of equipment that invites jumping and climbing along with swings, slides, a couple spinners, and a toddler section."
