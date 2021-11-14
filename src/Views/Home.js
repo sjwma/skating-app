@@ -15,26 +15,25 @@ import s1 from '../Images/S1.jpg';
 import s2 from '../Images/S2.jpg';
 import s3 from '../Images/S3.jpg';
 
-
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Header from '../Components/Header';
 
 const Home = () => {
     let history = useHistory();
-    const handleClick=(path)=>{
+    const handleClick = (path) => {
         history.push(path);
-    }
+    };
 
     return (
         <div className="flex flex-col h-screen mx-4">
             <Header text="Home" />
 
             <InputGroup className="mb-4">
-                {/* <FormControl placeholder="Search" /> */}
-                <Button variant="text"
-                onClick={()=>handleClick('/searchpage')}>
-                {/* href="/searchpage"> */}
+                <Button
+                    variant="text"
+                    onClick={() => handleClick('/searchpage')}
+                >
                     Search
                 </Button>
                 <InputGroup.Text>
@@ -84,7 +83,7 @@ const Home = () => {
                             imgsrc={s2}
                             title="Mandalay Double Set Rail"
                             description="It was perfect for kids, and parents who want to walk simultaneously, with a good size pergola for shade.   Comparing to the average solitary adventure of only a slide and swings, this playground activities are bountiful and great."
-                            />
+                        />
                     </div>
 
                     <div className="col-md-4">

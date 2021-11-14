@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Main from './Views/Main';
 import Login from './Views/Login';
@@ -15,52 +15,30 @@ import Friendsearchresult from './Views/Friendsearchresult';
 import Parksearchresult from './Views/Parksearchresult';
 import Spotsearchresult from './Views/Spotsearchresult';
 
-
 function App() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/">
-                    <Main />
-                </Route>
-                <Route path="/login">
-                    <Login />
-                </Route>
-                <Route path="/signup">
-                    <Signup />
-                </Route>
-                <Route path="/home">
-                    <Home />
-                </Route>
-                <Route path="/demographic">
-                    <Demographics />
-                </Route>
-                <Route path="/searchpage">
-                    <Searchpage />
-                </Route>
+                <Route exact path="/" component={Main} />
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={Signup} />
 
-                <Route path="/friendfilter">
-                    <Friendfilter />
-                </Route>
-                <Route path="/parkfilter">
-                    <Parkfilter />
-                </Route>
+                <Route path="/home" component={Home} />
+                <Route path="/demographic" component={Demographics} />
 
-                <Route path="/parksearchresult">
-                    <Parksearchresult />
-                </Route>
+                <Route path="/searchpage" component={Searchpage} />
 
-                <Route path="/spotfilter">
-                    <Spotfilter />
-                </Route>
+                <Route path="/friendfilter" component={Friendfilter} />
+                <Route path="/parkfilter" component={Parkfilter} />
 
-                <Route path="/spotsearchresult">
-                    <Spotsearchresult />
-                </Route>
+                <Route path="/parksearchresult" component={Parksearchresult} />
+                <Route path="/spotfilter" component={Spotfilter} />
+                <Route path="/spotsearchresult" component={Spotsearchresult} />
 
-                <Route path="/friendsearchresult">
-                    <Friendsearchresult />
-                </Route>
+                <Route
+                    path="/friendsearchresult"
+                    component={Friendsearchresult}
+                />
             </Switch>
         </Router>
     );
