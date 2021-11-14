@@ -1,83 +1,4 @@
-// import React from 'react';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import FormControl from 'react-bootstrap/FormControl';
-// import Button from 'react-bootstrap/Button';
-// import Select from 'react-select'
-// import { useHistory, BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// import Select from 'react-select';
-
-// const exp_options = [
-//     { value: 'Expert', label: 'Expert' },
-//     { value: 'Beginner', label: 'Beginner' },
-//     { value: 'Intermediate', label: 'Intermediate' },
-
-//   ];
-
-//   const freq_options = [
-//     { value: 'Once', label: 'Once' },
-//     { value: 'Twice', label: 'Twice' },
-//     { value: 'Thrice', label: 'Thrice' },
-//     { value: 'Every Day', label: 'Every Day' },
-
-//   ];
-
-//   const social_options = [
-//     { value: 'Group', label: 'Group' },
-//     { value: 'Alone', label: 'Alone' },
-//     { value: 'Both', label: 'Both' },
-
-//   ];
-// //   state = {
-// //     selectedOption: null,
-// //   };
-// //   handleChange = selectedOption => {
-// //     this.setState({ selectedOption });
-// //     console.log(`Option selected:`, selectedOption);
-// //   };
-// // TODO: Not finished yet
-// const Demographics = () => {
-//     return (
-//         <div >
-//             <h1 className="mb-4">First Time Demographics Setup</h1>
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Type of Skating</InputGroup.Text>
-//                 <FormControl placeholder="Type of Skating" />
-//             </InputGroup>
-
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Tricks</InputGroup.Text>
-//                 <FormControl placeholder="Tricks" />
-//             </InputGroup>
-
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Experience</InputGroup.Text>
-//             <Select options={exp_options} />
-//             </InputGroup>
-
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Social Preference</InputGroup.Text>
-//             <Select options={social_options} />
-//             </InputGroup>
-
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Frequency</InputGroup.Text>
-//             <Select options={freq_options} />
-//             </InputGroup>
-
-//            <Button variant="outline-primary" href='/home'>
-//                 Submit
-//             </Button>
-
-//         )
-
-//         </div>
-
-//     );
-// };
-// export default Demographics;
-
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import React, { useState, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -97,30 +18,29 @@ const Freq = ['Once', 'Twice', 'Thrice', 'Every Day'];
 
 const Demographics = () => {
     const [values, setValues] = useState({
-        Skating_Type: '',
-        Experience: '',
-        Tricks: '',
-        Social: '',
-        Freq: '',
-        Address: '',
-        Phone: '',
-        Location: '',
+        skating_type: '',
+        experience: '',
+        tricks: '',
+        social: '',
+        freq: '',
+        address: '',
+        phone: '',
+        location: '',
     });
 
-    const set = (name) => {
-        return ({ target: { value } }) => {
-            setValues((oldValues) => ({ ...oldValues, [name]: value }));
-        };
-    };
+    useEffect(() => {
+        localStorage.setItem('skating_type', values.skating_type);
+        localStorage.setItem('experience', values.experience);
+        localStorage.setItem('tricks', values.tricks);
+        localStorage.setItem('social', values.social);
+        localStorage.setItem('freq', values.freq);
+        localStorage.setItem('address', values.address);
+        localStorage.setItem('phone', values.phone);
+        localStorage.setItem('location', values.location);
+    }, [values]);
 
-    const saveFormData = async () => {
-        const response = await fetch('/api/registration', {
-            method: 'POST',
-            body: JSON.stringify(values),
-        });
-        if (response.status !== 200) {
-            throw new Error(`Request failed: ${response.status}`);
-        }
+    const handleInputChange = (event) => {
+        setValues({ ...values, [event.target.name]: event.target.value });
     };
 
     let history = useHistory();
@@ -131,29 +51,15 @@ const Demographics = () => {
         history.push('/home');
     };
 
-    //   const onSubmit = async (event) => {
-    //     event.preventDefault(); // Prevent default submission
-    //     try {
-    //       await saveFormData();
-    //       alert('Your registration was successfully submitted!');
-    //       setValues({
-    //         name: '', color: '', age: '', habits: ''
-    //       });
-    //     }
-    //     catch (e) {
-    //       //alert(`Registration failed! ${e.message}`);
-    //       alert('Your registration was successfully submitted!');
-
-    //     }
-
     return (
         <form onSubmit={handleSubmit} className="m-4">
             <h1 className="mb-4">First Time Demographics Setup</h1>
             <div>
                 <label className="mb-4">Type of Skating:</label>
                 <select
-                    value={values.Skating_Type}
-                    onChange={set('Skating_Type')}
+                    name="skating_type"
+                    value={values.skating_type}
+                    onChange={handleInputChange}
                 >
                     <option value="">Select Type</option>
                     {Skating_Type.map((c) => (
@@ -165,9 +71,10 @@ const Demographics = () => {
             <div>
                 <label className="mb-4">Experience*:</label>
                 <select
+                    name="experience"
                     required
-                    value={values.Experience}
-                    onChange={set('Experience')}
+                    value={values.experience}
+                    onChange={handleInputChange}
                 >
                     <option value="">Select Experience</option>
                     {Experience.map((c) => (
@@ -179,16 +86,22 @@ const Demographics = () => {
             <div>
                 <label className="mb-4">Tricks:</label>
                 <input
+                    name="tricks"
                     type="text"
                     placeholder="Alpha flip"
-                    value={values.Tricks}
-                    onChange={set('Tricks')}
+                    value={values.tricks}
+                    onChange={handleInputChange}
                 />
             </div>
 
             <div>
                 <label className="mb-4">Social*:</label>
-                <select required value={values.Social} onChange={set('Social')}>
+                <select
+                    name="social"
+                    required
+                    value={values.social}
+                    onChange={handleInputChange}
+                >
                     <option value="">Social Preference</option>
                     {Social.map((c) => (
                         <option key={c}>{c}</option>
@@ -196,17 +109,14 @@ const Demographics = () => {
                 </select>
             </div>
 
-            {/* <div>
-      <label className="mb-4">Age*:</label>
-      <input
-        type="number" required min="1"
-        value={values.age} onChange={set("age")} 
-      />
-</div> */}
-
             <div>
                 <label className="mb-4">Freqency per Week*:</label>
-                <select required value={values.Freq} onChange={set('Freq')}>
+                <select
+                    name="freq"
+                    required
+                    value={values.freq}
+                    onChange={handleInputChange}
+                >
                     <option value="">Social Preference</option>
                     {Freq.map((c) => (
                         <option key={c}>{c}</option>
@@ -217,29 +127,32 @@ const Demographics = () => {
             <div>
                 <label className="mb-4">Address:</label>
                 <input
+                    name="address"
                     type="text"
                     placeholder=""
-                    value={values.Address}
-                    onChange={set('Address')}
+                    value={values.address}
+                    onChange={handleInputChange}
                 />
             </div>
 
             <div>
                 <label className="mb-4">Phone number:</label>
                 <input
+                    name="phone"
                     type="tel"
                     placeholder="123-456-7890"
-                    value={values.Phone}
-                    onChange={set('Phone')}
+                    value={values.phone}
+                    onChange={handleInputChange}
                 />
             </div>
 
             <div>
                 <label className="mb-4">Enable location:</label>
                 <select
+                    name="location"
                     required
-                    value={values.Location}
-                    onChange={set('Location')}
+                    value={values.location}
+                    onChange={handleInputChange}
                 >
                     <option value="">Select</option>
                     {Location.map((c) => (
@@ -248,15 +161,7 @@ const Demographics = () => {
                 </select>
             </div>
 
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-
-            {/* <div>
-            <Button variant="outline-primary" href='/home'>
-                 Back
-            </Button>  
-</div>    */}
+            <button type="submit">Submit</button>
         </form>
     );
 };

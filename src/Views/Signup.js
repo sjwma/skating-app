@@ -1,136 +1,70 @@
-// import React from 'react';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import FormControl from 'react-bootstrap/FormControl';
-// import Button from 'react-bootstrap/Button';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-// const Signup = () => {
-//     return (
-//         <div className="flex flex-col items-center justify-center h-screen mx-8">
-//             <h1 className="mb-4">Create Account</h1>
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Name</InputGroup.Text>
-//                 <FormControl placeholder="Name" />
-//             </InputGroup>
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Email</InputGroup.Text>
-//                 <FormControl placeholder="Email" />
-//             </InputGroup>
-//             <InputGroup className="mb-4">
-//                 <InputGroup.Text>Password</InputGroup.Text>
-//                 <FormControl placeholder="Password" type = 'password' />
-//             </InputGroup>
-//             <Button variant="outline-primary" href="/demographic">
-//                 Signup
-//             </Button>
-//         </div>
-//     );
-// };
-
-import React, { useState } from "react";
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import { useHistory } from "react-router-dom";
-
-function Signup() {
-  const [values, setValues] = useState({
-    Name: "", Email: "", Password: ""
-  });
-
-  const set = (name) => {
-    return ({ target: { value } }) => {
-      setValues((oldValues) => ({ ...oldValues, [name]: value }));
-    };
-  };
-
-  const saveFormData = async () => {
-    const response = await fetch('/api/registration', {
-      method: 'POST',
-      body: JSON.stringify(values)
+const Signup = () => {
+    const [values, setValues] = useState({
+        name: '',
+        email: '',
+        password: '',
     });
-    if (response.status !== 200) {
-      throw new Error(`Request failed: ${response.status}`); 
-    }
-  }
-  let history = useHistory();
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-                                  
-    history.push("/demographic");
-   };
 
-//   const onSubmit = async (event) => {
-//     event.preventDefault(); // Prevent default submission
-//     try {
-//       await saveFormData();
-//       alert('Your registration was successfully submitted!');
-//       setValues({
-//         name: '', color: '', age: '', habits: '' 
-//       });
-//     } 
-//     catch (e) {
-//       //alert(`Registration failed! ${e.message}`);
-//       alert('Your registration was successfully submitted!');
-      
-//     }
-    
+    useEffect(() => {
+        localStorage.setItem('name', values.name);
+        localStorage.setItem('email', values.email);
+        localStorage.setItem('password', values.password);
+    }, [values]);
 
-      
-  
- 
-  return (
-    // <form onSubmit={onSubmit}> 
-    <form onSubmit={handleSubmit}>
-      <h1 className="mb-4">Create Account</h1>
-<div>
-      <label className="mb-4">Name*:</label>
-      <input 
-        type="text" required
-        value={values.Name} onChange={set("Name")}
-      />
-</div>
+    const handleInputChange = (event) => {
+        setValues({ ...values, [event.target.name]: event.target.value });
+    };
 
+    let history = useHistory();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
+        history.push('/demographic');
+    };
 
-<div>
-      <label className="mb-4">Email*:</label>
-      <input 
-        type="email" required
-        value={values.Email} onChange={set("Email")}
-      />
-</div>
+    return (
+        <form onSubmit={handleSubmit} className="m-4">
+            <h1 className="mb-4">Create Account</h1>
+            <div>
+                <label className="mb-4">Name*:</label>
+                <input
+                    name="name"
+                    type="text"
+                    required
+                    value={values.name || ''}
+                    onChange={handleInputChange}
+                />
+            </div>
 
-<div>
-      <label className="mb-4">Password*:</label>
-      <input 
-        type="password" required
-        value={values.Password} onChange={set("Password")}
-      />
-</div>
+            <div>
+                <label className="mb-4">Email*:</label>
+                <input
+                    name="email"
+                    type="email"
+                    required
+                    value={values.email || ''}
+                    onChange={handleInputChange}
+                />
+            </div>
 
-<div>
-      <button type="submit">Submit</button>
-</div>          
+            <div>
+                <label className="mb-4">Password*:</label>
+                <input
+                    name="password"
+                    type="password"
+                    required
+                    value={values.password || ''}
+                    onChange={handleInputChange}
+                />
+            </div>
 
-{/* <div>
-            <Button variant="outline-primary" href='/home'>
-                 Back
-            </Button>  
-</div>    */}
-    </form>
-  );
-}
+            <button type="submit">Submit</button>
+        </form>
+    );
+};
 
-export default function Page() {
-  return (
-    <div className="App">
-      <Signup />
-    </div>
-  );
-}
-
-
-
-
-
+export default Signup;
