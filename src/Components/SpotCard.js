@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/card-style.css';
 
-const Card = ({ imgsrc, title, description }) => {
+const SpotCard = ({ imgsrc, title, description }) => {
     return (
         <div className="card text-center shadow mb-4">
             <div className="overflow-hidden">
@@ -17,4 +17,4 @@ const Card = ({ imgsrc, title, description }) => {
         </div>
     );
 };
-export default Card;
+export default SpotCard;

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/friend-card-style.css';
 
-const Card = ({ imgsrc, title, experience, Age, TOS }) => {
+const FriendsCard = ({ imgsrc, title, experience, Age, TOS }) => {
     return (
         <div className="card text-center shadow mb-4">
             <div className="overflow-hidden">
@@ -25,4 +25,4 @@ const Card = ({ imgsrc, title, experience, Age, TOS }) => {
         </div>
     );
 };
-export default Card;
+export default FriendsCard;
