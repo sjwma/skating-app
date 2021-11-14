@@ -25,3 +25,5 @@ You will also see any lint errors in the console.
 [React Icons](https://react-icons.github.io/react-icons)
 
 [Prettier](https://prettier.io/) for code formatting
+
+[Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) for locally storing user info
