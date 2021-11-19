@@ -84,138 +84,127 @@
 
 // export default Friendfilter;
 
-
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-const Experience = ["Beginner", "Intermediate", "Expert"];
-const Skating_Type = ["Freestyle","Vert", "Street", "Park","Cruising","Downhill","Others"];
-const Gender = ["Female", "Male", "X"];
-
+const Experience = ['Beginner', 'Intermediate', 'Expert'];
+const Skating_Type = [
+    'Freestyle',
+    'Vert',
+    'Street',
+    'Park',
+    'Cruising',
+    'Downhill',
+    'Others',
+];
+const Gender = ['Female', 'Male', 'X'];
 
 function Friendfilter() {
-  const [values, setValues] = useState({
-    Experience: "", Skating_Type: "", Gender: "", Age: "",  Location:""
-  });
-
-  const set = (name) => {
-    return ({ target: { value } }) => {
-      setValues((oldValues) => ({ ...oldValues, [name]: value }));
-    };
-  };
-
-  const saveFormData = async () => {
-    const response = await fetch('/api/registration', {
-      method: 'POST',
-      body: JSON.stringify(values)
+    const [values, setValues] = useState({
+        Experience: '',
+        Skating_Type: '',
+        Gender: '',
+        Age: '',
+        Location: '',
     });
-    if (response.status !== 200) {
-      throw new Error(`Request failed: ${response.status}`); 
-    }
-  }
 
-  let history = useHistory();
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.stopPropagation();
-                                  
-    history.push("/friendsearchresult");
-   };
+    const set = (name) => {
+        return ({ target: { value } }) => {
+            setValues((oldValues) => ({ ...oldValues, [name]: value }));
+        };
+    };
 
-//   const onSubmit = async (event) => {
-//     event.preventDefault(); // Prevent default submission
-//     try {
-//       await saveFormData();
-//       alert('Your registration was successfully submitted!');
-//       setValues({
-//         name: '', color: '', age: '', habits: '' 
-//       });
-//     } 
-//     catch (e) {
-//       //alert(`Registration failed! ${e.message}`);
-//       alert('Your registration was successfully submitted!');
-      
-//     }
-    
+    let history = useHistory();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-      
-  
- 
-  return (
-    // <form onSubmit={onSubmit}> 
-     <form onSubmit={handleSubmit}>
-      <h1 className="mb-4">Enter information of friends you are looking for</h1>
+        history.push('/friendsearchresult');
+    };
 
+    return (
+        // <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
+            <h1 className="mb-4">
+                Enter information of friends you are looking for
+            </h1>
 
-<div align="center">
-      <label className="mb-4">Experience*:</label>
-      <select 
-        required
-        value={values.Experience} onChange={set("Experience")}
-      >
-        <option value="">Select Experience</option>
-        {Experience.map(c => <option key={c}>{c}</option>)}
-      </select>
-</div>
+            <div align="center">
+                <label className="mb-4">Experience*:</label>
+                <select
+                    required
+                    value={values.Experience}
+                    onChange={set('Experience')}
+                >
+                    <option value="">Select Experience</option>
+                    {Experience.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
-<div>
-      <label className="mb-4">Type of Skating*:</label>
-      <select 
-        required
-        value={values.Skating_Type} onChange={set("Skating_Type")}
-      >
-        <option value="">Select Experience</option>
-        {Skating_Type.map(c => <option key={c}>{c}</option>)}
-      </select>
-</div>
+            <div>
+                <label className="mb-4">Type of Skating*:</label>
+                <select
+                    required
+                    value={values.Skating_Type}
+                    onChange={set('Skating_Type')}
+                >
+                    <option value="">Select Experience</option>
+                    {Skating_Type.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
-<div>
-      <label className="mb-4">Gender*:</label>
-      <select 
-        required
-        value={values.Gender} onChange={set("Gender")}
-      >
-        <option value="">Select Experience</option>
-        {Gender.map(c => <option key={c}>{c}</option>)}
-      </select>
-</div>
+            <div>
+                <label className="mb-4">Gender*:</label>
+                <select required value={values.Gender} onChange={set('Gender')}>
+                    <option value="">Select Experience</option>
+                    {Gender.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
+            <div>
+                <label className="mb-4">Age*:</label>
+                <input
+                    type="number"
+                    required
+                    min="1"
+                    value={values.Age}
+                    onChange={set('Age')}
+                />
+            </div>
 
- <div>
-      <label className="mb-4">Age*:</label>
-      <input
-        type="number" required min="1"
-        value={values.Age} onChange={set("Age")} 
-      />
-</div> 
+            <div>
+                <label className="mb-4">Enter zip code:</label>
+                <input
+                    type="text"
+                    placeholder="75080"
+                    value={values.Location}
+                    onChange={set('Location')}
+                />
+            </div>
 
-<div>
-      <label className="mb-4">Enter zip code:</label>
-      <input 
-        type="text" placeholder="75080"
-        value={values.Location} onChange={set("Location")}
-      />
-</div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
 
-
-<div>
-      <button type="submit">Submit</button>
-</div>          
-
-{/* <div>
+            {/* <div>
             <Button variant="outline-primary" href='/home'>
                  Back
             </Button>  
 </div>    */}
-    </form>
-  );
+        </form>
+    );
 }
-
 
 export default function Page() {
     return (
-      <div className="App">
-        <Friendfilter />
-      </div>
+        <div className="App">
+            <Friendfilter />
+        </div>
     );
-  }
+}
