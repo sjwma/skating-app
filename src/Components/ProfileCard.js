@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import ProfileCardHeader from './ProfileCardHeader';
 
-const ProfileCard = ({ name, image, mode }) => {
+const ProfileCard = ({ name, bodyText, image, mode }) => {
     return (
-        <Container>
+        <Container className="border-solid">
             <Row>
-                <Col>
+                <Col xs={8}>
                     <Image src={image} />
                 </Col>
                 <Col>
@@ -14,7 +14,10 @@ const ProfileCard = ({ name, image, mode }) => {
                     <ProfileCardHeader mode={mode} />
                 </Col>
             </Row>
-            <Row></Row>
+            <Row className="mt-4">
+                <h3>{name}</h3>
+                <div>{bodyText}</div>
+            </Row>
         </Container>
     );
 };

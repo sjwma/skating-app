@@ -15,26 +15,26 @@ const Searchpage = () => {
 
             <Button
                 variant="outline-primary"
+                className="mb-4"
                 onClick={() => handleClick('/friendfilter')}
             >
-                {/* href="/friendfilter" */}
-                {/* className="mb-4" */}
                 Friends
             </Button>
 
             <Button
                 variant="outline-primary"
+                className="mb-4"
                 onClick={() => handleClick('/parkfilter')}
             >
-                Parks
+                Spots
             </Button>
 
-            <Button
+            {/* <Button
                 variant="outline-primary"
                 onClick={() => handleClick('/spotfilter')}
             >
                 Spots
-            </Button>
+            </Button> */}
         </div>
     );
 };
