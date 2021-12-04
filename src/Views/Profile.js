@@ -14,6 +14,14 @@ const Profile = ({}) => {
         profile_text: placeholderText,
     });
 
+    const [skatingInfo, setSkatingInfo] = useState({
+        skating_type: 'Quad-skating',
+        experience: '',
+        tricks: '',
+        social: '',
+        freq: '',
+    });
+
     // Get relevant values from localstorage, uses OR to prevent a null return value
     useEffect(() => {
         setValues({ name: localStorage.getItem('name') || values.name });
@@ -28,8 +36,8 @@ const Profile = ({}) => {
             <Header isProfile={true} text="My Profile" className="px-2" />
             <ProfileCard
                 name={values.name}
-                bodyText={placeholderText}
                 image={person}
+                profileInfo={skatingInfo}
                 mode="profile"
             />
         </div>
